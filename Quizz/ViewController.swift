@@ -76,6 +76,22 @@ class ViewController: UIViewController {
         }
     
     private func answerQuestion(){
+        switch questionView.style {
+        case .correct : game.answerCurrentQuestion(with: true)
+        case .incorrect : game.answerCurrentQuestion(with: false)
+        case .standard :
+            break 
+        }
+        scoreLabel.text = " \(game.score) / 10"
+        
+        questionView.transform = .identity
+        questionView.style = .standard
+        switch game.state {
+            case .ongoing :  questionView.title = game.currentQuestion.title
+            case .over : questionView.title = "game over"
+            questionView.transform = .identity
+        }
+       
         
     }
     
