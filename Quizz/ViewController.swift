@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         newGameButton.isHidden = false
         questionView.title = game.currentQuestion.title
     }
-    
-    
+
+ //   let initialTranslationTransform : CGAffineTransform
     @IBOutlet weak var activityCircle: UIActivityIndicatorView!
     
 
@@ -48,19 +48,23 @@ class ViewController: UIViewController {
    }
     
     @IBAction func dragQuestionView(_ sender: UIPanGestureRecognizer) {
-        switch sender.state {
-        case .began, .changed:
-            transformQuestionViewWith(gesture:sender)
-        case .ended, .cancelled :
-            answerQuestion()
-        default :
-            break
+   
+            switch sender.state {
+            case .began, .changed:
+                transformQuestionViewWith(gesture:sender)
+            case .ended, .cancelled :
+                answerQuestion()
+            default :
+                break
+            
         }
+        
     }
     
     private func transformQuestionViewWith (gesture : UIPanGestureRecognizer){
         let translation = gesture.translation(in: questionView)
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
+        
         let screenWidth = UIScreen.main.bounds.width
         let translationPercent = translation.x / (screenWidth/2)
         let rotationAngle = (CGFloat.pi / 6) * translationPercent
@@ -84,6 +88,33 @@ class ViewController: UIViewController {
         }
         scoreLabel.text = " \(game.score) / 10"
         
+     
+        
+        let screenWidth = UIScreen.main.bounds.width
+        
+        var translationTransform : CGAffineTransform
+        if questionView.style == .correct {
+            translationTransform = CGAffineTransform(translationX: screenWidth + screenWidth/10, y: 0)
+        } else {
+            translationTransform = CGAffineTransform(translationX: -screenWidth + (-screenWidth/10), y: 0)
+        }
+        
+        //CGAffineTransform(translationX: translation.x, y: translation.y)
+        
+        UIView.animate(withDuration: 0.4, animations : {
+            self.questionView.transform = translationTransform
+        }) {(success) in
+            if success {
+                self.showQuestionView()
+            }
+        }
+       
+        
+    }
+    
+    
+    private func showQuestionView(){
+        
         questionView.transform = .identity
         questionView.style = .standard
         switch game.state {
@@ -91,9 +122,7 @@ class ViewController: UIViewController {
             case .over : questionView.title = "game over"
             questionView.transform = .identity
         }
-       
         
     }
-    
 }
 
