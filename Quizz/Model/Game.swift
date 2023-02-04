@@ -57,7 +57,7 @@ class Game {
        }
 
        private func goToNextQuestion() {
-           if currentIndex < questions.count - 1 {
+           if currentIndex < questions.count - 1 && state == .ongoing {
                currentIndex += 1
            } else {
                finishGame()

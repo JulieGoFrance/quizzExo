@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         questionView.title = game.currentQuestion.title
     }
 
- //   let initialTranslationTransform : CGAffineTransform
+ 
     @IBOutlet weak var activityCircle: UIActivityIndicatorView!
     
 
@@ -48,8 +48,7 @@ class ViewController: UIViewController {
    }
     
     @IBAction func dragQuestionView(_ sender: UIPanGestureRecognizer) {
-   
-            switch sender.state {
+        switch sender.state {
             case .began, .changed:
                 transformQuestionViewWith(gesture:sender)
             case .ended, .cancelled :
@@ -58,13 +57,11 @@ class ViewController: UIViewController {
                 break
             
         }
-        
     }
     
     private func transformQuestionViewWith (gesture : UIPanGestureRecognizer){
         let translation = gesture.translation(in: questionView)
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
-        
         let screenWidth = UIScreen.main.bounds.width
         let translationPercent = translation.x / (screenWidth/2)
         let rotationAngle = (CGFloat.pi / 6) * translationPercent
@@ -88,18 +85,13 @@ class ViewController: UIViewController {
         }
         scoreLabel.text = " \(game.score) / 10"
         
-     
-        
         let screenWidth = UIScreen.main.bounds.width
-        
         var translationTransform : CGAffineTransform
         if questionView.style == .correct {
             translationTransform = CGAffineTransform(translationX: screenWidth + screenWidth/10, y: 0)
-        } else {
-            translationTransform = CGAffineTransform(translationX: -screenWidth + (-screenWidth/10), y: 0)
-        }
-        
-        //CGAffineTransform(translationX: translation.x, y: translation.y)
+            } else {
+                translationTransform = CGAffineTransform(translationX: -screenWidth + (-screenWidth/10), y: 0)
+            }
         
         UIView.animate(withDuration: 0.4, animations : {
             self.questionView.transform = translationTransform
