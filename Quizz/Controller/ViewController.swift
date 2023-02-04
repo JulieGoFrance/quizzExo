@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         startNewGame()
     }
     private func startNewGame(){
-        
         activityCircle.isHidden = false
         newGameButton.isHidden = true
         questionView.title = "loading"
@@ -100,21 +99,24 @@ class ViewController: UIViewController {
                 self.showQuestionView()
             }
         }
-       
-        
-    }
+       }
     
     
     private func showQuestionView(){
         
         questionView.transform = .identity
+        questionView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        
         questionView.style = .standard
         switch game.state {
             case .ongoing :  questionView.title = game.currentQuestion.title
             case .over : questionView.title = "game over"
             questionView.transform = .identity
         }
-        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, animations : {
+            self.questionView.transform = .identity
+        }, completion : nil)
     }
+    
 }
 
