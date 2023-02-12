@@ -17,44 +17,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jEC-Yl-FS7" customClass="QuestionView" customModule="Quizz" customModuleProvider="target">
-                                <rect key="frame" x="39" y="59" width="299" height="272"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="etE-sJ-dBU">
+                                <rect key="frame" x="47" y="69" width="299" height="350"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycj-dl-Ric">
-                                        <rect key="frame" x="15" y="21" width="268" height="207"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Où se cache le marsupilami">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="22"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="questionmark.app.fill.ar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C0d-Kb-4Wd">
-                                        <rect key="frame" x="106" y="237.66666666666663" width="121" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEC-Yl-FS7" customClass="QuestionView" customModule="Quizz" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="299" height="350"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ycj-dl-Ric">
+                                                <rect key="frame" x="19" y="121" width="260" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Où se cache le marsupilami">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="22"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.app.fill.ar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C0d-Kb-4Wd">
+                                                <rect key="frame" x="124.66666666666666" y="291.66666666666669" width="50" height="46.999999999999943"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="EhD-nu-HMP"/>
+                                                    <constraint firstAttribute="width" constant="50" id="vLI-wx-mGK"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstItem="C0d-Kb-4Wd" firstAttribute="centerX" secondItem="jEC-Yl-FS7" secondAttribute="centerX" id="DxO-IF-FAg"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="330" id="VQ5-bZ-j8l"/>
+                                            <constraint firstAttribute="bottom" secondItem="C0d-Kb-4Wd" secondAttribute="bottom" constant="10" id="ViH-0y-vMv"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="279" id="yL5-Sm-Lld"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="icon" destination="C0d-Kb-4Wd" id="UfZ-I7-wId"/>
+                                            <outlet property="label" destination="ycj-dl-Ric" id="BMB-Z5-CYy"/>
+                                            <outletCollection property="gestureRecognizers" destination="RG2-oW-Ucc" appends="YES" id="ysN-7e-uyA"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outlet property="icon" destination="C0d-Kb-4Wd" id="UfZ-I7-wId"/>
-                                    <outlet property="label" destination="ycj-dl-Ric" id="BMB-Z5-CYy"/>
-                                    <outletCollection property="gestureRecognizers" destination="RG2-oW-Ucc" appends="YES" id="ysN-7e-uyA"/>
-                                </connections>
-                            </view>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JtL-hb-2q1">
-                                <rect key="frame" x="105" y="429" width="199" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" name="AccentColor"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek0-mQ-LPH">
-                                <rect key="frame" x="23" y="339" width="331" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="7ny-wd-gua"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="350" id="MHl-Ts-oqE"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="299" id="MKl-xP-n6c"/>
+                                    <constraint firstAttribute="width" constant="299" id="zGd-55-F2e"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek0-mQ-LPH">
+                                <rect key="frame" x="97" y="459" width="199" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="9qc-IY-AZ1"/>
+                                    <constraint firstAttribute="width" constant="199" id="WEN-Nc-lX8"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="0/10">
                                         <attributes>
@@ -65,34 +82,56 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nC-k4-AOe">
-                                <rect key="frame" x="91" y="489" width="210" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JtL-hb-2q1">
+                                <rect key="frame" x="166.66666666666666" y="638" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="6y2-wy-yMM"/>
+                                    <constraint firstAttribute="height" constant="60" id="U9k-ei-Nl1"/>
+                                </constraints>
+                                <color key="color" name="AccentColor"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF8-u3-WhU">
+                                <rect key="frame" x="96.666666666666686" y="718" width="200" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="iO7-Ws-Yqq"/>
+                                    <constraint firstAttribute="height" constant="80" id="oDh-It-Jhl"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Start New Game">
+                                        <fragment content="Commencer">
                                             <attributes>
-                                                <color key="NSColor" red="0.99215692281723022" green="0.99215692281723022" blue="0.99215704202651978" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="23" name="Helvetica"/>
+                                                <font key="NSFont" size="24" name="Helvetica"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="didTapNewGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Clz-AU-uam"/>
+                                    <action selector="didTapNewGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tqf-Ml-0Xc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <constraints>
+                            <constraint firstItem="RF8-u3-WhU" firstAttribute="top" secondItem="JtL-hb-2q1" secondAttribute="bottom" constant="20" id="0rQ-Zf-qIx"/>
+                            <constraint firstItem="RF8-u3-WhU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="68M-w6-S20"/>
+                            <constraint firstItem="Ek0-mQ-LPH" firstAttribute="top" secondItem="etE-sJ-dBU" secondAttribute="bottom" constant="40" id="Cpz-XF-XxF"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="RF8-u3-WhU" secondAttribute="bottom" constant="20" id="HUn-vz-wgt"/>
+                            <constraint firstItem="etE-sJ-dBU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="cT3-yk-a30"/>
+                            <constraint firstItem="Ek0-mQ-LPH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mW5-7v-e8X"/>
+                            <constraint firstItem="etE-sJ-dBU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yFO-Gf-hic"/>
+                            <constraint firstItem="JtL-hb-2q1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zVc-4e-wxt"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="activityCircle" destination="JtL-hb-2q1" id="RAo-YV-rZA"/>
-                        <outlet property="newGameButton" destination="4nC-k4-AOe" id="u0j-LZ-YyW"/>
+                        <outlet property="newGameButton" destination="RF8-u3-WhU" id="RFi-xy-wYW"/>
                         <outlet property="questionView" destination="jEC-Yl-FS7" id="mfq-MN-BoP"/>
                         <outlet property="scoreLabel" destination="Ek0-mQ-LPH" id="EZe-SG-Fpg"/>
                     </connections>
@@ -112,6 +151,9 @@
         <namedColor name="AccentColor">
             <color red="0.09299999475479126" green="0.43799999356269836" blue="0.61299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

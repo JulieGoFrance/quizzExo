@@ -57,6 +57,7 @@
 		CE54F561298192710003BA0D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		CE54F563298192900003BA0D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		CE54F565298192E50003BA0D /* QuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
+		CEC0D02D29996EED00904649 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +343,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE54F533298190880003BA0D /* Base */,
+				CEC0D02D29996EED00904649 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
